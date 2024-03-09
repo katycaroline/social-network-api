@@ -63,10 +63,10 @@ module.exports = {
             { $push: { friends: req.params.friendId }},
             { new: true }
         )
-        .then((friend) => {
-        !friend
+        .then((user) => {
+        !user
             ? res.status(404).json({ message: 'No User found with this ID!'})
-            : res.json(friend)
+            : res.json(user)
         })
         .catch((err) => res.status(500).json(err));
     },
@@ -77,10 +77,10 @@ module.exports = {
         { $pull: { friends: req.params.friendId }},
         { new: true }
         )
-        .then((friend) => {
-        !friend
+        .then((user) => {
+        !user
             ? res.status(404).json({ message: 'No User found with this ID!'})
-            : res,json(friend)
+            : res,json(user)
         })
         .catch((err) => res.status(500).json(err));
     }
